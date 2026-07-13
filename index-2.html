@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Banana AI Compliance & Adoption</title>
+<meta name="description" content="Banana AI Compliance & Adoption — présentation mobile-first, interactive et documentée.">
+<style>
+:root{
+ --black:#050505;--ink:#0d0d0d;--white:#fff;--paper:#f5f5f3;--grey:#e7e7e4;
+ --red:#df171f;--muted:#62625f;--line:#111;--shadow:7px 7px 0 #111;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#050505;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.38}
+a{color:inherit}
+button,input{font:inherit}
+.topbar{position:sticky;top:0;z-index:50;height:62px;background:#050505;border-bottom:1px solid #2c2c2c}
+.nav{height:100%;width:min(1180px,100%);margin:auto;padding:0 14px;display:flex;align-items:center;justify-content:space-between;color:#fff}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-weight:1000;letter-spacing:.08em;font-size:.82rem}
+.logo{width:36px;height:36px}
+.wordmark{display:grid;line-height:1;font-weight:1000;font-size:1.04rem;letter-spacing:-.02em;text-transform:lowercase}
+.wordmark em{font-style:normal;font-weight:800;font-size:.48rem;letter-spacing:.58em;text-transform:uppercase;margin-top:3px}
+.card ul{margin:6px 0 0;padding-left:15px;font-size:.71rem;color:#555;display:grid;gap:4px}
+.card.dark ul,.card.red ul{color:#e6e6e6}
+.card.red .tag{background:#fff;color:var(--red)}
+.pillars{margin-top:14px}
+.table-wrap{overflow-x:auto;margin-top:14px}
+.price-table{width:100%;border-collapse:collapse;background:#fff;border:2px solid #111;font-size:.75rem;min-width:560px}
+.price-table th{background:#111;color:#fff;text-align:left;padding:9px 10px;font-size:.63rem;letter-spacing:.08em;text-transform:uppercase}
+.price-table td{border-top:2px solid #111;padding:9px 10px}
+.price-table td:last-child{font-weight:900;white-space:nowrap}
+.cycle-offer{margin-top:10px}
+.kicker{font-size:.66rem;letter-spacing:.12em;font-weight:1000;color:var(--red);margin-bottom:8px}
+.kicker + .plist{margin-top:0}
+.plist{margin:8px 0 16px;padding-left:16px;font-size:.8rem;display:grid;gap:5px}
+.panel .note{margin-top:10px}
+.dark-note{color:#b6b6b3}
+.mini{display:inline-block;margin-top:8px;font-size:.58rem;font-weight:1000;letter-spacing:.05em;border:2px solid #111;border-radius:999px;padding:3px 8px;color:#111}
+.prep{background:#111;color:#fff;border-radius:14px;padding:14px;margin:16px 0;display:grid;gap:10px}
+.prep-title{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#ff5c62}
+.prep-row{display:grid;gap:3px;font-size:.82rem}
+.prep-row>b{font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:#9a9a97}
+.prep-row p{margin:0}
+.badge{display:inline-block;border:2px solid #fff;border-radius:999px;padding:2px 8px;font-size:.6rem;font-weight:1000;margin-right:7px;vertical-align:1px}
+.badge.ok{border-color:#3ddc84;color:#3ddc84}
+.badge.warn{border-color:#ffb020;color:#ffb020}
+.badge.hard{border-color:#ff5c62;color:#ff5c62}
+.cycle-grid{display:grid;gap:10px}
+@media(min-width:760px){.cycle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1020px){.cycle-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.menu{display:flex;gap:3px;overflow-x:auto}
+.menu a{white-space:nowrap;text-decoration:none;padding:8px 10px;border-radius:999px;font-size:.68rem;font-weight:900}
+.menu a:hover{background:#fff;color:#000}
+main{background:#fff}
+.section{padding:26px 14px}
+.section.grey{background:var(--grey)}
+.section.dark{background:#0b0b0b;color:#fff}
+.wrap{width:min(1180px,100%);margin:auto}
+.hero{display:grid;gap:18px;padding-top:34px;padding-bottom:30px}
+.eyebrow{font-size:.68rem;letter-spacing:.16em;font-weight:1000}
+h1{font-size:clamp(2.8rem,13vw,6rem);line-height:.88;letter-spacing:-.075em;margin:12px 0 14px}
+h1 .red{color:var(--red)}
+.lead{font-size:clamp(.96rem,3vw,1.18rem);max-width:720px;color:#333;margin:0}
+.section-head{margin-bottom:14px}
+h2{font-size:clamp(2rem,9vw,4rem);line-height:.94;letter-spacing:-.06em;margin:0 0 8px}
+.section-head p{font-size:.86rem;color:var(--muted);margin:0;max-width:700px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{
+ display:block;text-decoration:none;background:#fff;border:2px solid #111;border-radius:18px;
+ padding:13px;box-shadow:var(--shadow);min-width:0;transition:.15s;touch-action:manipulation;
+ -webkit-tap-highlight-color:rgba(223,23,31,.15)
+}
+.card:active{transform:translate(3px,3px);box-shadow:3px 3px 0 #111}
+.card.dark{background:#111;color:#fff;border-color:#fff;box-shadow:7px 7px 0 #fff}
+.card.red{background:var(--red);color:#fff}
+.card h3{font-size:.93rem;margin:8px 0 4px}
+.card p{font-size:.72rem;color:#555;margin:0}
+.card.dark p,.card.red p{color:#ddd}
+.num,.icon{width:34px;height:34px;border:2px solid currentColor;border-radius:10px;display:grid;place-items:center;font-size:.72rem;font-weight:1000}
+.timeline{display:flex;gap:12px;overflow-x:auto;padding:2px 8px 13px 2px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.timeline .card{flex:0 0 min(82vw,330px);scroll-snap-align:start;min-height:180px}
+.date{color:var(--red);font-weight:1000;font-size:1.28rem}
+.tag{display:inline-block;background:var(--red);color:#fff;border-radius:999px;padding:4px 8px;font-size:.63rem;font-weight:1000;margin:9px 0}
+.price-grid,.package-grid{display:grid;gap:10px}
+.price{font-size:1.9rem;font-weight:1000;letter-spacing:-.05em}
+.note{font-size:.73rem;color:#555;margin-top:10px}
+.calc{display:grid;gap:10px}
+.panel{background:#fff;color:#111;border:2px solid #fff;border-radius:18px;padding:13px}
+.control{display:grid;grid-template-columns:1fr 100px;gap:8px;align-items:center;margin:8px 0;font-size:.78rem}
+.control input{width:100%;padding:8px;border:2px solid #111;border-radius:9px;background:#fff}
+.results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.metric{border:2px solid #111;border-radius:12px;padding:9px;min-width:0}
+.metric .big{font-size:1.18rem;font-weight:1000;overflow-wrap:anywhere}
+.metric.good .big{color:#13844a}.metric.bad .big{color:var(--red)}
+.sources{display:grid;gap:8px}
+.source{display:block;background:#fff;border:2px solid #111;border-radius:12px;padding:10px;text-decoration:none;font-size:.73rem;font-weight:800}
+.detail-page{
+ display:none;position:fixed;inset:0;z-index:100;background:#fff;overflow:auto;
+ padding:calc(18px + env(safe-area-inset-top)) 14px calc(28px + env(safe-area-inset-bottom));
+}
+.detail-page:target{display:block}
+.detail-wrap{width:min(820px,100%);margin:auto}
+.detail-top{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:18px}
+.back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;background:#111;color:#fff;border-radius:999px;padding:10px 14px;font-weight:900;font-size:.82rem}
+.detail-page h2{font-size:clamp(2.2rem,10vw,4rem)}
+.callout{border-left:6px solid var(--red);background:#ededeb;border-radius:0 13px 13px 0;padding:13px;margin:14px 0}
+.checks{display:grid;gap:8px}.check{border:2px solid #111;border-radius:12px;padding:11px;font-size:.84rem}
+.detail-page h3{margin:22px 0 9px}
+.detail-grid{display:grid;gap:8px;margin:10px 0}
+.detail-row{border:2px solid #111;border-radius:12px;padding:11px;background:#fff}
+.detail-row b{display:block;margin-bottom:3px}
+.risk-box{background:#111;color:#fff;border-radius:14px;padding:13px;margin:14px 0}
+.risk-box strong{color:#ff5c62}
+.time-box{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+.time-item{border:2px solid #111;border-radius:12px;padding:10px;background:#f3f3f1}
+.time-item b{display:block;font-size:1rem}
+@media(min-width:760px){.detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.time-box{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.detail-page .source-link{display:inline-block;margin-top:14px;font-weight:900;color:var(--red)}
+.footer{background:#050505;color:#fff;padding:28px 14px;font-size:.76rem}
+@media(min-width:760px){
+ .section{padding:42px 24px}
+ .hero{grid-template-columns:1fr 1fr;align-items:center}
+ .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .price-grid,.package-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .calc{grid-template-columns:1fr 1fr}
+ .menu a{font-size:.74rem}
+}
+@media(max-width:620px){
+ .menu{max-width:58vw}
+ .section{padding:22px 12px}
+ .hero{padding-top:28px;padding-bottom:24px}
+ .grid{gap:9px}
+ .card{padding:12px}
+ .card h3{font-size:.88rem}
+ .card p{font-size:.69rem}
+ .timeline .card{min-height:168px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <nav class="nav">
+  <a class="brand" href="#home">
+   <span class="wordmark">banana<em>NAVY</em></span>
+  </a>
+  <div class="menu">
+   <a href="#risk">RISQUES</a><a href="#law">LÉGISLATION</a><a href="#roles">MÉTIERS</a><a href="#package">PACKAGE</a><a href="#why">POURQUOI NOUS</a><a href="#profit">MARGE</a><a href="#recurring">RÉCURRENT</a>
+  </div>
+ </nav>
+</header>
+
+<main id="home">
+<section class="section">
+ <div class="wrap hero">
+  <div>
+   <div class="eyebrow">PROPOSITION INTERNE · NOUVELLE OFFRE</div>
+   <h1>Banana AI<br><span class="red">Compliance</span><br>& Adoption</h1>
+   <p class="lead"><strong>Chaque société est désormais obligée d’être conforme et de former ses équipes.</strong><br>Audit, gouvernance et formation par fonction sont devenus obligatoires — mais les entreprises n’ont pas d’outils internes pour le faire, et les organismes de formation ne savent pas proposer ce que nous maîtrisons déjà : chatbot, voicebot et monitoring des preuves.</p>
+  </div>
+  <div class="grid">
+   <a class="card" href="#detail-need"><span class="num">01</span><h3>Pourquoi ce produit</h3><p>Obligations, risques et adoption.</p></a>
+   <a class="card" href="#detail-roles"><span class="num">02</span><h3>Formation par métier</h3><p>Accès, données et responsabilités.</p></a>
+   <a class="card" href="#detail-docs"><span class="num">03</span><h3>Documentation attendue</h3><p>Registres, politiques et preuves.</p></a>
+   <a class="card" href="#detail-offer"><span class="num">04</span><h3>Ce que Banana livre</h3><p>Package complet et réutilisable.</p></a>
+  </div>
+ </div>
+ <div class="wrap pillars">
+  <div class="grid">
+   <div class="card"><span class="icon">CO</span><h3>Conformité</h3><p>Réduire les risques légaux et financiers.</p></div>
+   <div class="card dark"><span class="icon">FO</span><h3>Compétences</h3><p>Former chaque employé selon son métier.</p></div>
+   <div class="card"><span class="icon">SE</span><h3>Sécurité</h3><p>Protéger les données et les systèmes.</p></div>
+   <div class="card red"><span class="icon">PE</span><h3>Performance</h3><p>Gagner du temps et augmenter l’adoption.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="risk" class="section dark">
+ <div class="wrap">
+  <div class="section-head"><h2>Déjà obligatoire.<br>Déjà sanctionnable.</h2><p>Les obligations IA ne commencent pas en 2026 : plusieurs s’appliquent déjà. Voici ce que risque une société qui ne fait rien — et pourquoi ce produit se vend maintenant.</p></div>
+  <div class="calc">
+   <div class="panel">
+    <div class="kicker">SANCTIONS MAXIMALES PAR RÈGLEMENT</div>
+    <div class="results">
+     <div class="metric bad"><div class="big">35 M€ / 7 %</div><span>AI Act — pratiques interdites</span></div>
+     <div class="metric bad"><div class="big">15 M€ / 3 %</div><span>AI Act — autres violations</span></div>
+     <div class="metric bad"><div class="big">20 M€ / 4 %</div><span>RGPD</span></div>
+     <div class="metric bad"><div class="big">10 M€ / 2 %</div><span>NIS2 — entités essentielles</span></div>
+    </div>
+    <p class="note">Pourcentage du chiffre d’affaires annuel mondial — le montant le plus élevé s’applique.</p>
+   </div>
+   <div class="panel">
+    <div class="kicker">DÉJÀ EN VIGUEUR AUJOURD’HUI</div>
+    <ul class="plist">
+     <li>RGPD — depuis 2018</li>
+     <li>NIS2 Belgique — octobre 2024</li>
+     <li>DORA (finance) — janvier 2025</li>
+     <li>AI Act : maîtrise de l’IA obligatoire + pratiques interdites — février 2025</li>
+     <li>Data Act — septembre 2025</li>
+    </ul>
+    <div class="kicker">AU-DELÀ DES AMENDES</div>
+    <ul class="plist">
+     <li>Responsabilité personnelle possible des dirigeants (NIS2)</li>
+     <li>Exclusion d’appels d’offres et audits clients échoués</li>
+     <li>Fuite de données = crise de réputation et perte de clients</li>
+     <li>Une autorité peut faire suspendre un système IA en usage</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="law" class="section grey">
+ <div class="wrap">
+  <div class="section-head"><h2>Obligations réelles</h2><p>Chaque carte ouvre une fiche dédiée. Les dates sont distinguées des obligations concrètes.</p></div>
+  <div class="timeline">
+   <a class="card" href="#detail-ai4"><div class="date">02.02.2025</div><span class="tag">APPLICABLE</span><h3>AI Act — Article 4</h3><p>Maîtrise de l’IA adaptée au personnel et au contexte.</p></a>
+   <a class="card" href="#detail-banned"><div class="date">02.02.2025</div><span class="tag">INTERDICTIONS</span><h3>AI Act — Pratiques interdites</h3><p>Huit pratiques bannies, sanctions maximales.</p></a>
+   <a class="card" href="#detail-dora"><div class="date">17.01.2025</div><span class="tag">FINANCE</span><h3>DORA</h3><p>Risque ICT, incidents, tiers et continuité.</p></a>
+   <a class="card" href="#detail-gpai"><div class="date">02.08.2025</div><span class="tag">MODÈLES</span><h3>AI Act — GPAI</h3><p>Obligations des modèles à usage général.</p></a>
+   <a class="card" href="#detail-dataact"><div class="date">12.09.2025</div><span class="tag">DONNÉES</span><h3>Data Act</h3><p>Accès, utilisation, partage et cloud switching.</p></a>
+   <a class="card" href="#detail-aiact"><div class="date">02.08.2026</div><span class="tag">ÉCHÉANCE MAJEURE</span><h3>AI Act</h3><p>Application générale de la majorité des obligations.</p></a>
+   <a class="card" href="#detail-rgpd"><div class="date">DEPUIS 2018</div><span class="tag">PERMANENT</span><h3>RGPD</h3><p>Données personnelles dans chaque usage IA.</p></a>
+   <a class="card" href="#detail-nis2"><div class="date">BELGIQUE</div><span class="tag">CRITIQUE</span><h3>NIS2</h3><p>Gouvernance cyber et responsabilité de la direction.</p></a>
+   <a class="card" href="#detail-next"><div class="date">2026–2027</div><span class="tag">À VENIR</span><h3>CRA, DGA & ISO 42001</h3><p>Prochaines exigences et normes utiles.</p></a>
+  </div>
+ </div>
+</section>
+
+<section id="roles" class="section">
+ <div class="wrap">
+  <div class="section-head"><h2>Un parcours par fonction</h2><p>Chaque secteur et chaque métier ouvre une page avec les risques, obligations et contenus à enseigner.</p></div>
+  <div class="grid">
+   <a class="card" href="#detail-hr"><span class="icon">RH</span><h3>Ressources humaines</h3><p>Recrutement, profilage, RGPD et biais.</p></a>
+   <a class="card dark" href="#detail-finance"><span class="icon">FI</span><h3>Finance & assurance</h3><p>Scoring, fraude, DORA et contrôle des tiers.</p></a>
+   <a class="card" href="#detail-industry"><span class="icon">IN</span><h3>Industrie</h3><p>OT/IT, maintenance, qualité, NIS2 et CRA.</p></a>
+   <a class="card red" href="#detail-management"><span class="icon">DG</span><h3>Direction</h3><p>Gouvernance, validation et responsabilité.</p></a>
+   <a class="card" href="#detail-health"><span class="icon">SA</span><h3>Santé</h3><p>Données sensibles, sécurité patient et traçabilité.</p></a>
+   <a class="card dark" href="#detail-sales"><span class="icon">CO</span><h3>Commercial & marketing</h3><p>Contenus, CRM, confidentialité et validation.</p></a>
+   <a class="card" href="#detail-it"><span class="icon">IT</span><h3>IT & sécurité</h3><p>Accès, fournisseurs, modèles, logs et incidents.</p></a>
+   <a class="card red" href="#detail-support"><span class="icon">SU</span><h3>Support & opérations</h3><p>Escalade, hallucinations et protection client.</p></a>
+  </div>
+ </div>
+</section>
+
+<section id="market" class="section grey">
+ <div class="wrap">
+  <div class="section-head"><h2>Repères de prix</h2><p>Les références publiques sont distinctes d’un déploiement enterprise complet.</p></div>
+  <div class="price-grid">
+   <a class="card" href="#detail-tf"><div class="price">1 050 €</div><h3>Technofutur TIC</h3><p>Formation technique IA de trois jours.</p></a>
+   <a class="card" href="#detail-iia"><div class="price">1 600–1 800 €</div><h3>IIA Belgium</h3><p>Programme professionnel de 14 CPE.</p></a>
+   <a class="card dark" href="#detail-corporate"><div class="price">1 500–2 500 € / jour</div><h3>Repère intra-entreprise</h3><p>Journée personnalisée pour un groupe.</p></a>
+  </div>
+  <div class="table-wrap"><table class="price-table">
+   <thead><tr><th>Type de formation</th><th>Public</th><th>Durée</th><th>Prix moyen (HTVA)</th></tr></thead>
+   <tbody>
+    <tr><td>Sensibilisation IA (généraliste)</td><td>Tous employés</td><td>2–3 h</td><td>490 – 850 € / pers.</td></tr>
+    <tr><td>Formation IA par métier</td><td>Par département</td><td>½ jour</td><td>950 – 1 600 € / pers.</td></tr>
+    <tr><td>Atelier pratique IA</td><td>Équipes</td><td>1 jour</td><td>1 200 – 2 000 € / pers.</td></tr>
+    <tr><td>Certification IA (interne)</td><td>Managers / Experts</td><td>1–2 jours</td><td>1 800 – 3 500 € / pers.</td></tr>
+    <tr><td>Parcours complet (LMS)</td><td>Organisation</td><td>Sur mesure</td><td>15 000 – 40 000 € / projet</td></tr>
+   </tbody>
+  </table></div>
+  <p class="note">Sources : offres publiques de prestataires belges (awex.be, cepegra.be, ifapme.be, orsys.be, digitalcity.brussels). Banana vend un système : audit, documents, parcours, outils conversationnels et preuves. Pas seulement une journée de cours.</p>
+ </div>
+</section>
+
+<section id="package" class="section">
+ <div class="wrap">
+  <div class="section-head"><h2>Package à livrer</h2><p>Chaque livrable ouvre sa fiche et explique son importance réglementaire et opérationnelle.</p></div>
+  <div class="package-grid">
+   <a class="card" href="#detail-audit"><h3>1. Audit & registre IA</h3><p>Outils, finalités, fournisseurs, données, responsables.</p><span class="mini">MOYEN · RÉPLICABLE ≈90 %</span></a>
+   <a class="card" href="#detail-governance"><h3>2. Gouvernance</h3><p>Politique IA, responsabilités et human oversight.</p><span class="mini">MOYEN · RÉPLICABLE ≈80 %</span></a>
+   <a class="card" href="#detail-training"><h3>3. Parcours métiers</h3><p>Modules adaptés aux accès et aux risques.</p><span class="mini">EXIGEANT AU DÉBUT · PUIS ≈75 %</span></a>
+   <a class="card" href="#detail-chat"><h3>4. Chatbot Coach</h3><p>Explication, questions ouvertes et escalade.</p><span class="mini">CONFIG SUR STACK EXISTANTE</span></a>
+   <a class="card" href="#detail-voice"><h3>5. Voicebot Coach</h3><p>Simulations réalistes et justification orale.</p><span class="mini">DEV INITIAL · PUIS MOTEUR COMMUN</span></a>
+   <a class="card" href="#detail-monitoring"><h3>6. Evidence & monitoring</h3><p>Versions, résultats, renouvellements et incidents.</p><span class="mini">DEV UNIQUE · PUIS RÉPLICABLE</span></a>
+  </div>
+ </div>
+</section>
+
+<section id="why" class="section grey">
+ <div class="wrap">
+  <div class="section-head"><h2>Pourquoi nous</h2><p>Ce produit est rentable parce qu’il s’appuie sur ce que la société sait déjà faire — et sur un marché que la loi rend obligatoire.</p></div>
+  <div class="grid">
+   <div class="card red"><span class="icon">BOT</span><h3>La stack existe déjà</h3><p>Chatbot et voicebot sont notre technologie actuelle : rien à inventer, seulement du contenu à brancher.</p></div>
+   <div class="card"><span class="icon">80%</span><h3>Réutilisable</h3><p>Templates, politiques et modules créés une fois, livrés à chaque nouveau client.</p></div>
+   <div class="card dark"><span class="icon">LOI</span><h3>La loi crée la demande</h3><p>Chaque échéance — surtout août 2026 — pousse de nouveaux clients vers nous, sans effort marketing.</p></div>
+   <div class="card"><span class="icon">3:1</span><h3>Peu d’offres intégrées</h3><p>Les juristes ne font pas d’outils, les formateurs pas de conformité. Nous combinons les trois.</p></div>
+   <div class="card dark"><span class="icon">MRR</span><h3>Revenu récurrent</h3><p>La conformité ne s’arrête jamais : 990 €/mois par client, contractuellement justifiés.</p></div>
+   <div class="card"><span class="icon">REF</span><h3>Nous sommes la démo</h3><p>Nous appliquons le produit à nous-mêmes : une référence crédible dès le premier rendez-vous.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="profit" class="section dark">
+ <div class="wrap">
+  <div class="section-head"><h2>Rentabilité : 11 900 € + 990 €/mois</h2><p>La calculatrice fonctionne dans Safari et les navigateurs classiques. Les valeurs initiales restent visibles même si JavaScript est bloqué par un aperçu de fichier.</p></div>
+  <div class="calc">
+   <div class="panel">
+    <div class="control"><label for="price">Prix setup HTVA</label><input id="price" type="number" value="11900"></div>
+    <div class="control"><label for="hours">Heures</label><input id="hours" type="number" value="55"></div>
+    <div class="control"><label for="hourcost">Coût interne/h</label><input id="hourcost" type="number" value="50"></div>
+    <div class="control"><label for="legal">Juridique/DPO</label><input id="legal" type="number" value="900"></div>
+    <div class="control"><label for="content">Contenus</label><input id="content" type="number" value="1000"></div>
+    <div class="control"><label for="other">Vente + infra</label><input id="other" type="number" value="700"></div>
+   </div>
+   <div class="panel results">
+    <div class="metric"><div class="big" id="cost">5 350 €</div><span>Coût total</span></div>
+    <div class="metric"><div class="big" id="margin">6 550 €</div><span>Marge brute</span></div>
+    <div class="metric good" id="rateCard"><div class="big" id="rate">55,0 %</div><span>Taux de marge</span></div>
+    <div class="metric"><div class="big" id="floor">8 917 €</div><span>Prix pour 40 %</span></div>
+   </div>
+  </div>
+  <p class="note dark-note">S’ajoute le récurrent : 990 €/mois et par client (11 880 €/an) pour 0,5 à 1 jour de travail mensuel — détail dans la section Récurrent.</p>
+ </div>
+</section>
+
+<section id="recurring" class="section">
+ <div class="wrap">
+  <div class="section-head"><h2>Récurrent client</h2><p>Après le déploiement initial, l’abonnement suit un cycle planifié. Ce travail régulier maintient la conformité du client et justifie le revenu récurrent.</p></div>
+  <div class="cycle-grid">
+   <div class="card red"><span class="tag">MENSUEL</span><h3>Chaque mois</h3><ul>
+    <li>Monitoring des usages IA, des logs et des alertes</li>
+    <li>Veille réglementaire et information du client</li>
+    <li>Mise à jour du chatbot et du voicebot coach</li>
+    <li>Onboarding IA des nouveaux collaborateurs</li>
+    <li>Rapport mensuel de preuves et d’incidents</li>
+   </ul></div>
+   <div class="card dark"><span class="tag">TRIMESTRIEL</span><h3>Chaque trimestre</h3><ul>
+    <li>Mise à jour du registre IA et des fournisseurs</li>
+    <li>Revue des risques, incidents et actions correctives</li>
+    <li>Nouveaux scénarios de formation par métier</li>
+    <li>Point avec le comité de gouvernance</li>
+   </ul></div>
+   <div class="card"><span class="tag">SEMESTRIEL</span><h3>Chaque semestre</h3><ul>
+    <li>Renouvellement des formations par rôle</li>
+    <li>Réévaluation via chatbot et voicebot</li>
+    <li>Mise à jour des politiques si nécessaire</li>
+   </ul></div>
+   <div class="card"><span class="tag">ANNUEL</span><h3>Chaque année</h3><ul>
+    <li>Audit interne complet et registre à jour</li>
+    <li>Revue de la politique IA et de la gouvernance</li>
+    <li>Rapport de préparation au contrôle</li>
+    <li>Renouvellement des attestations</li>
+   </ul></div>
+  </div>
+  <div class="card dark cycle-offer"><span class="tag">MODÈLE RÉCURRENT</span><h3>11 900 € setup + 990 € / mois</h3><ul>
+   <li>Jusqu’à 100 utilisateurs, plateforme SaaS sécurisée (UE)</li>
+   <li>Contenus, scénarios et politiques maintenus à jour</li>
+   <li>Support, rappels et dossier de preuves inclus</li>
+   <li>Soit 11 880 € de revenu récurrent par an et par client</li>
+  </ul></div>
+  <p class="note">Charge indicative : 0,5 à 1 jour par mois et par client selon la taille. Chaque action alimente automatiquement le dossier de preuves du client.</p>
+ </div>
+</section>
+
+<section id="sources" class="section grey">
+ <div class="wrap">
+  <div class="section-head"><h2>Sources</h2></div>
+  <div class="sources">
+   <a class="source" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">AI Act — Règlement (UE) 2024/1689</a>
+   <a class="source" target="_blank" href="https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers">Commission européenne — AI literacy Q&A</a>
+   <a class="source" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">RGPD — Règlement (UE) 2016/679</a>
+   <a class="source" target="_blank" href="https://ccb.belgium.be/regulation/nis2">CCB Belgique — NIS2</a>
+   <a class="source" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng">DORA — Règlement (UE) 2022/2554</a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="footer"><div class="wrap"><b>Prêt pour l’IA. Prêt pour demain.</b><br>Synthèse opérationnelle. Validation juridique finale recommandée pour chaque client et chaque secteur.</div></footer>
+
+<!-- Dedicated detail pages: pure anchor/CSS navigation, no JavaScript required -->
+<section id="detail-need" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#home">← Retour</a></div><h2>Pourquoi les entreprises en ont besoin</h2><div class="callout"><b>L’usage de l’IA crée déjà des obligations de compétence, de gouvernance, de protection des données et de cybersécurité.</b></div><div class="checks"><div class="check">Identifier les outils IA réellement utilisés, y compris le shadow AI.</div><div class="check">Définir les usages autorisés, interdits et soumis à validation.</div><div class="check">Former les personnes selon leur rôle, leur accès et leur contexte.</div><div class="check">Documenter la supervision humaine, les incidents et les mises à jour.</div><div class="check">Pouvoir démontrer les mesures prises.</div></div></div></section>
+
+<section id="detail-roles" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#home">← Retour</a></div><h2>Pourquoi former par métier</h2><p>L’article 4 de l’AI Act demande de tenir compte des connaissances techniques, de l’expérience, de l’éducation, de la formation et du contexte d’utilisation. Une formation identique pour toute la société est donc difficile à défendre lorsque les rôles et risques diffèrent.</p><div class="checks"><div class="check">RH : candidats, profilage, biais et données personnelles.</div><div class="check">Finance : scoring, fraude, modèles et DORA.</div><div class="check">Industrie : données techniques, OT/IT et sécurité opérationnelle.</div><div class="check">Direction : gouvernance, responsabilité et supervision.</div></div></div></section>
+
+<section id="detail-docs" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#home">← Retour</a></div><h2>Documentation attendue</h2><div class="checks"><div class="check">Registre des systèmes et usages IA.</div><div class="check">Finalités, utilisateurs, rôles et droits d’accès.</div><div class="check">Analyse des risques et DPIA lorsque nécessaire.</div><div class="check">Politique interne d’utilisation de l’IA.</div><div class="check">Procédure de supervision humaine et d’escalade.</div><div class="check">Gestion des incidents, erreurs et plaintes.</div><div class="check">Registre des formations, versions et résultats.</div><div class="check">Contrats fournisseurs, transferts et mesures de sécurité.</div></div></div></section>
+
+<section id="detail-offer" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#home">← Retour</a></div><h2>Ce que Banana Navy livre</h2><div class="checks"><div class="check">Audit et inventaire IA.</div><div class="check">Matrice rôle × outil × donnée × risque.</div><div class="check">Politique IA et procédures personnalisées.</div><div class="check">Parcours de formation par métier.</div><div class="check">Chatbot et voicebot de formation contrôlés.</div><div class="check">Scénarios, critères d’évaluation et escalade humaine.</div><div class="check">Dashboard, logs, preuves et renouvellements.</div><div class="check">Pack annuel de mise à jour.</div></div></div></section>
+
+<section id="detail-ai4" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#law">← Retour</a></div><h2>AI Act — Article 4</h2><div class="callout"><b>Applicable depuis le 2 février 2025.</b></div><p>Les fournisseurs et déployeurs doivent prendre des mesures pour assurer un niveau suffisant de maîtrise de l’IA du personnel et des personnes qui utilisent les systèmes pour leur compte.</p><h3>Ce que l’entreprise doit pouvoir démontrer</h3><div class="detail-grid"><div class="detail-row"><b>Population concernée</b>Qui utilise quel système IA, avec quel rôle et quel niveau d’accès.</div><div class="detail-row"><b>Formation adaptée</b>Contenu différent selon le métier, le contexte, l’expérience et le niveau de risque.</div><div class="detail-row"><b>Preuves</b>Date, version du module, participants, résultats, renouvellements et mesures correctives.</div><div class="detail-row"><b>Mise à jour</b>Révision lors d’un nouvel outil, d’un changement de rôle ou d’une évolution réglementaire.</div></div><h3>Ce que Banana prépare</h3><div class="checks"><div class="check">Matrice des rôles et usages IA.</div><div class="check">Socle commun de maîtrise de l’IA.</div><div class="check">Modules métier spécialisés.</div><div class="check">Chatbot et voicebot d’évaluation.</div><div class="check">Registre de formation et attestations.</div></div><div class="time-box"><div class="time-item"><b>1–2 j</b>Cartographie des rôles</div><div class="time-item"><b>2–4 j</b>Création des parcours</div><div class="time-item"><b>1–3 j</b>Configuration coach IA</div><div class="time-item"><b>Continu</b>Mises à jour</div></div><a class="source-link" target="_blank" href="https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers">Source officielle</a></div></section>
+
+<section id="detail-dora" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#law">← Retour</a></div><h2>DORA</h2><div class="callout"><b>Applicable depuis le 17 janvier 2025 aux entités financières concernées.</b></div><h3>Obligations principales</h3><div class="detail-grid"><div class="detail-row"><b>Gouvernance ICT</b>Cadre approuvé et supervisé par l’organe de direction.</div><div class="detail-row"><b>Gestion des risques</b>Identification, protection, détection, réponse, récupération et amélioration.</div><div class="detail-row"><b>Incidents</b>Classification, notification et suivi des incidents ICT majeurs.</div><div class="detail-row"><b>Tests de résilience</b>Tests réguliers, y compris tests avancés pour certaines entités.</div><div class="detail-row"><b>Prestataires tiers</b>Registre, clauses contractuelles, concentration et stratégie de sortie.</div><div class="detail-row"><b>Continuité</b>Plans de continuité, sauvegarde, restauration et communication de crise.</div></div><h3>Documents à préparer</h3><div class="checks"><div class="check">Cadre de gestion du risque ICT.</div><div class="check">Registre des prestataires tiers ICT.</div><div class="check">Procédure d’incident et matrice de notification.</div><div class="check">Plans de continuité et résultats de tests.</div><div class="check">Contrats, SLA et plans de sortie.</div></div><h3>Ce que Banana peut livrer</h3><div class="checks"><div class="check">Cartographie des outils IA comme services ICT.</div><div class="check">Évaluation des fournisseurs de voicebots, chatbots et modèles.</div><div class="check">Procédures d’incident et de continuité.</div><div class="check">Formation ciblée direction, IT, conformité et métiers.</div><div class="check">Dashboard de preuves et suivi des tiers.</div></div><div class="time-box"><div class="time-item"><b>3–5 j</b>Cartographie</div><div class="time-item"><b>4–8 j</b>Documentation</div><div class="time-item"><b>2–4 j</b>Formation</div><div class="time-item"><b>Continu</b>Monitoring</div></div><a class="source-link" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng">Texte officiel</a></div></section>
+
+<section id="detail-dataact" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#law">← Retour</a></div><h2>Data Act</h2><div class="callout"><b>Applicable depuis le 12 septembre 2025.</b></div><h3>Obligations et impacts</h3><div class="checks"><div class="check">Identifier les données générées par les produits et services connectés.</div><div class="check">Organiser l’accès de l’utilisateur aux données lorsque le règlement l’exige.</div><div class="check">Encadrer le partage B2B et certaines demandes B2G.</div><div class="check">Revoir les clauses contractuelles relatives aux données.</div><div class="check">Préparer la portabilité et la sortie des services cloud.</div></div><h3>Package Banana</h3><div class="checks"><div class="check">Cartographie des flux de données IA et IoT.</div><div class="check">Matrice de propriété, accès et partage.</div><div class="check">Checklist contrats et fournisseurs cloud.</div><div class="check">Procédure de sortie et migration.</div><div class="check">Formation des équipes produit, IT et juridique.</div></div><div class="time-box"><div class="time-item"><b>2–4 j</b>Cartographie</div><div class="time-item"><b>2–5 j</b>Procédures</div><div class="time-item"><b>1–2 j</b>Formation</div><div class="time-item"><b>Annuel</b>Revue</div></div><a class="source-link" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2023/2854/oj/eng">Texte officiel</a></div></section>
+
+<section id="detail-aiact" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#law">← Retour</a></div><h2>AI Act — à partir du 2 août 2026</h2><div class="callout"><b>Le 2 août 2026 est l’échéance générale majeure.</b> La portée exacte dépend du rôle de l’entreprise et du type de système IA.</div><h3>Ce qu’une société doit d’abord déterminer</h3><div class="checks"><div class="check">Est-elle fournisseur, déployeur, importateur ou distributeur ?</div><div class="check">Le système est-il interdit, à haut risque, soumis à transparence ou à faible risque ?</div><div class="check">Le système concerne-t-il l’emploi, le crédit, la santé, l’éducation, l’accès à des services essentiels ou un produit réglementé ?</div><div class="check">L’entreprise utilise-t-elle un modèle généraliste ou fournit-elle elle-même un système au marché ?</div></div><h3>Pour un déployeur de système à haut risque</h3><div class="detail-grid"><div class="detail-row"><b>Instructions d’utilisation</b>Utiliser le système conformément aux instructions et aux limites du fournisseur.</div><div class="detail-row"><b>Supervision humaine</b>Désigner des personnes compétentes capables d’intervenir ou d’arrêter l’usage.</div><div class="detail-row"><b>Qualité des données d’entrée</b>Veiller à la pertinence et à l’adéquation des données sous contrôle de l’entreprise.</div><div class="detail-row"><b>Monitoring</b>Surveiller le fonctionnement et réagir aux risques ou incidents.</div><div class="detail-row"><b>Logs</b>Conserver les journaux générés sous son contrôle, en principe au moins six mois lorsque l’article 26 s’applique.</div><div class="detail-row"><b>Information des travailleurs</b>Informer les travailleurs ou leurs représentants avant l’usage d’un système à haut risque au travail.</div><div class="detail-row"><b>Impact sur les droits fondamentaux</b>Réaliser une évaluation lorsque l’article 27 s’applique, notamment pour certains organismes publics ou services essentiels.</div><div class="detail-row"><b>Coopération</b>Être capable de répondre aux demandes des autorités et de signaler les risques graves.</div></div><h3>Documents à pouvoir fournir lors d’un contrôle</h3><div class="checks"><div class="check">Registre des systèmes IA et classification.</div><div class="check">Contrats, instructions fournisseurs et responsabilités.</div><div class="check">Politique IA et procédure de supervision humaine.</div><div class="check">Journal des risques, incidents et actions correctives.</div><div class="check">Preuves de formation et d’AI literacy.</div><div class="check">Logs disponibles sous contrôle de l’entreprise.</div><div class="check">DPIA RGPD et évaluation des droits fondamentaux lorsque requises.</div><div class="check">Preuves d’information des travailleurs et utilisateurs concernés.</div></div><h3>Quand les contrôles commencent-ils ?</h3><p>Il n’existe pas une date unique de « premier audit ». Les autorités nationales de surveillance du marché peuvent contrôler les obligations dès qu’elles sont applicables. L’AI Office contrôle principalement les modèles d’IA à usage général. L’article 4 est déjà supervisable depuis 2025 ; la majorité des autres obligations devient contrôlable à partir du 2 août 2026 selon le périmètre.</p><div class="risk-box"><strong>Sanctions maximales prévues par l’AI Act :</strong><br>jusqu’à 35 M€ ou 7 % du chiffre d’affaires mondial pour les pratiques interdites ; jusqu’à 15 M€ ou 3 % pour certaines autres violations ; jusqu’à 7,5 M€ ou 1 % pour des informations incorrectes, incomplètes ou trompeuses fournies aux autorités. Les règles prévoient une prise en compte spécifique des PME et du contexte de l’infraction.</div><h3>Package Banana recommandé</h3><div class="checks"><div class="check">Classification réglementaire de chaque usage.</div><div class="check">AI inventory et registre des risques.</div><div class="check">Matrice de supervision humaine.</div><div class="check">Procédure d’incident et de suspension.</div><div class="check">Parcours de formation par rôle.</div><div class="check">Dossier de preuves prêt pour contrôle.</div></div><div class="time-box"><div class="time-item"><b>2–4 j</b>Audit & classification</div><div class="time-item"><b>3–6 j</b>Documentation</div><div class="time-item"><b>2–5 j</b>Formation & outils</div><div class="time-item"><b>1–2 j</b>Validation finale</div></div><a class="source-link" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">Texte officiel</a></div></section>
+
+<section id="detail-nis2" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#law">← Retour</a></div><h2>NIS2 Belgique</h2><div class="callout"><b>Applicable en Belgique aux entités essentielles et importantes relevant du périmètre légal.</b></div><h3>Obligations principales</h3><div class="detail-grid"><div class="detail-row"><b>Direction</b>Approbation et supervision des mesures de gestion des risques cyber.</div><div class="detail-row"><b>Formation</b>Connaissances suffisantes pour les dirigeants et cyberhygiène pour le personnel.</div><div class="detail-row"><b>Mesures de sécurité</b>Gestion des risques, incidents, continuité, sauvegardes, cryptographie et accès.</div><div class="detail-row"><b>Supply chain</b>Évaluation des fournisseurs et prestataires.</div><div class="detail-row"><b>Notification</b>Alerte précoce, notification et rapport final selon les délais applicables.</div><div class="detail-row"><b>Preuves</b>Politiques, contrôles, incidents, tests et amélioration continue.</div></div><h3>Package Banana</h3><div class="checks"><div class="check">Évaluation du périmètre et des systèmes IA critiques.</div><div class="check">Politique de sécurité IA et gestion des accès.</div><div class="check">Procédure d’incident voicebot/chatbot/agentic system.</div><div class="check">Formation direction et équipes opérationnelles.</div><div class="check">Registre fournisseurs et plan de continuité.</div></div><div class="time-box"><div class="time-item"><b>2–4 j</b>Scope & risques</div><div class="time-item"><b>4–8 j</b>Politiques</div><div class="time-item"><b>2–4 j</b>Formation</div><div class="time-item"><b>Continu</b>Suivi</div></div><a class="source-link" target="_blank" href="https://ccb.belgium.be/regulation/nis2">CCB Belgique</a></div></section>
+
+<section id="detail-hr" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#roles">← Retour</a></div><h2>Ressources humaines</h2><div class="checks"><div class="check">Tri de CV, profilage et risques de biais.</div><div class="check">Données personnelles et catégories sensibles.</div><div class="check">Article 22 RGPD et décisions entièrement automatisées.</div><div class="check">Validation humaine et droit de contestation.</div><div class="check">Conservation des prompts, résultats et justificatifs.</div></div></div></section>
+
+<section id="detail-finance" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#roles">← Retour</a></div><h2>Finance & assurance</h2><div class="checks"><div class="check">Scoring, fraude et explicabilité.</div><div class="check">DORA : risque ICT, tiers et incidents.</div><div class="check">Protection client et validation humaine.</div><div class="check">Gouvernance des modèles et documentation.</div><div class="check">Traçabilité des décisions et contrôles.</div></div></div></section>
+
+<section id="detail-industry" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#roles">← Retour</a></div><h2>Industrie</h2><div class="checks"><div class="check">Séparation OT/IT et contrôle des accès.</div><div class="check">Données techniques, secrets d’affaires et fournisseurs.</div><div class="check">Maintenance prédictive et validation des recommandations.</div><div class="check">NIS2 pour les entités concernées.</div><div class="check">Cyber Resilience Act pour les produits numériques.</div><div class="check">Procédures de repli manuel et sécurité opérationnelle.</div></div></div></section>
+
+<section id="detail-management" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#roles">← Retour</a></div><h2>Direction</h2><div class="checks"><div class="check">Définir les responsabilités et propriétaires de risque.</div><div class="check">Approuver les politiques et budgets.</div><div class="check">Suivre les incidents, indicateurs et plans d’action.</div><div class="check">Comprendre les limites des systèmes déployés.</div><div class="check">Organiser la supervision et les revues périodiques.</div></div></div></section>
+
+<section id="detail-health" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#roles">← Retour</a></div><h2>Santé</h2><div class="checks"><div class="check">Données de santé et confidentialité renforcée.</div><div class="check">Sécurité patient et validation clinique.</div><div class="check">Traçabilité des recommandations assistées.</div><div class="check">Escalade humaine et gestion des situations urgentes.</div><div class="check">Analyse du statut éventuel de dispositif médical.</div></div></div></section>
+
+<section id="detail-sales" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#roles">← Retour</a></div><h2>Commercial & marketing</h2><div class="checks"><div class="check">Confidentialité des données CRM.</div><div class="check">Validation des contenus et allégations.</div><div class="check">Propriété intellectuelle et droits d’utilisation.</div><div class="check">Transparence envers les clients lorsque nécessaire.</div><div class="check">Contrôle des automatisations de prospection.</div></div></div></section>
+
+<section id="detail-it" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#roles">← Retour</a></div><h2>IT & sécurité</h2><div class="checks"><div class="check">Gestion des identités et des accès.</div><div class="check">Évaluation des fournisseurs et sous-traitants.</div><div class="check">Logs, surveillance et gestion des incidents.</div><div class="check">Prompt injection, exfiltration et sécurité des intégrations.</div><div class="check">Gestion des versions, modèles et dépendances.</div></div></div></section>
+
+<section id="detail-support" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#roles">← Retour</a></div><h2>Support & opérations</h2><div class="checks"><div class="check">Procédures d’escalade vers un humain.</div><div class="check">Gestion des hallucinations et réponses incertaines.</div><div class="check">Protection des informations client.</div><div class="check">Traçabilité des conversations et corrections.</div><div class="check">Continuité de service et mode dégradé.</div></div></div></section>
+
+<section id="detail-tf" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#market">← Retour</a></div><h2>Technofutur TIC</h2><p>Prix public observé : 1 050 € pour une formation technique IA de trois jours, soit environ 350 € par jour et par participant.</p><a class="source-link" target="_blank" href="https://technofuturtic.be/catalogue/formation/techniques-de-lintelligence-artificielle">Source</a></div></section>
+
+<section id="detail-iia" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#market">← Retour</a></div><h2>IIA Belgium</h2><p>Prix public non-membre observé : environ 1 600 € en early bird puis 1 800 € pour un programme professionnel de 14 CPE.</p><a class="source-link" target="_blank" href="https://www.iiabelgium.org/events/aiprompting">Source</a></div></section>
+
+<section id="detail-corporate" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#market">← Retour</a></div><h2>Formation intra-entreprise</h2><p>Repère commercial : environ 1 500 à 2 500 € HTVA par groupe et par jour pour une journée personnalisée. Cette fourchette n’est pas une moyenne officielle belge ; beaucoup de prestataires travaillent sur devis.</p></div></section>
+
+<section id="detail-audit" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#package">← Retour</a></div><h2>1. Audit & registre IA</h2><div class="callout"><b>Priorité absolue :</b> sans inventaire, aucune conformité sérieuse n’est possible.</div><h3>Livrables</h3><div class="checks"><div class="check">AI Inventory : outil, fournisseur, modèle, version, finalité.</div><div class="check">Cartographie des utilisateurs, rôles et droits d’accès.</div><div class="check">Flux de données, catégories de données et transferts.</div><div class="check">Classification réglementaire et criticité.</div><div class="check">Registre des risques et plan de remédiation.</div><div class="check">Liste des usages non autorisés ou non maîtrisés.</div></div><div class="time-box"><div class="time-item"><b>1 j</b>PME simple</div><div class="time-item"><b>2–4 j</b>PME multi-services</div><div class="time-item"><b>5–10 j</b>Entreprise complexe</div><div class="time-item"><b>Trimestriel</b>Mise à jour</div></div><div class="prep"><b class="prep-title">Côté Banana — préparation interne</b><div class="prep-row"><b>À préparer</b><p>Questionnaire d’audit, modèle de registre IA, grille de classification AI Act.</p></div><div class="prep-row"><b>Difficulté</b><p><span class="badge warn">MOYENNE</span>Expertise réglementaire, aucun développement.</p></div><div class="prep-row"><b>Réplicable tel quel ?</b><p><span class="badge ok">OUI ≈90 %</span>Mêmes templates pour chaque client, seules les réponses changent.</p></div></div></div></section>
+
+<section id="detail-governance" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#package">← Retour</a></div><h2>2. Gouvernance</h2><h3>Documents livrés</h3><div class="checks"><div class="check">Politique IA interne.</div><div class="check">Charte d’usage pour les employés.</div><div class="check">Matrice RACI et propriétaires de risque.</div><div class="check">Procédure de supervision humaine.</div><div class="check">Procédure d’approbation d’un nouvel outil IA.</div><div class="check">Procédure d’incident, suspension et escalade.</div><div class="check">Politique fournisseurs et sous-traitants.</div><div class="check">Calendrier de revue et comité de gouvernance.</div></div><div class="time-box"><div class="time-item"><b>2–3 j</b>Pack standard</div><div class="time-item"><b>4–7 j</b>Sur mesure</div><div class="time-item"><b>1 j</b>Validation management</div><div class="time-item"><b>Annuel</b>Revue</div></div><div class="prep"><b class="prep-title">Côté Banana — préparation interne</b><div class="prep-row"><b>À préparer</b><p>Pack de politiques types (politique IA, charte, RACI, procédures d’incident), validé une seule fois par un juriste.</p></div><div class="prep-row"><b>Difficulté</b><p><span class="badge warn">MOYENNE</span>Rédaction initiale + validation juridique unique.</p></div><div class="prep-row"><b>Réplicable tel quel ?</b><p><span class="badge ok">OUI ≈80 %</span>Adaptation légère par secteur et organigramme, pas de développement.</p></div></div></div></section>
+<section id="detail-training" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#package">← Retour</a></div><h2>3. Parcours métiers</h2><p>Le socle commun couvre les limites de l’IA, la confidentialité, la sécurité, les hallucinations, la propriété intellectuelle et la validation humaine. Chaque fonction reçoit ensuite un module spécifique.</p><h3>Structure recommandée</h3><div class="checks"><div class="check">Module direction et gouvernance.</div><div class="check">Module RH et décisions sur les personnes.</div><div class="check">Module finance, scoring et conformité.</div><div class="check">Module industrie, OT/IT et données techniques.</div><div class="check">Module commercial, marketing et CRM.</div><div class="check">Module IT, sécurité et fournisseurs.</div></div><div class="time-box"><div class="time-item"><b>0,5–1 j</b>Socle commun</div><div class="time-item"><b>1–2 j</b>Par métier</div><div class="time-item"><b>1–3 j</b>Scénarios</div><div class="time-item"><b>Semestriel</b>Renouvellement</div></div><div class="prep"><b class="prep-title">Côté Banana — préparation interne</b><div class="prep-row"><b>À préparer</b><p>Socle commun + modules métier (supports, cas pratiques, quiz), mis à jour à chaque évolution légale.</p></div><div class="prep-row"><b>Difficulté</b><p><span class="badge hard">ÉLEVÉE AU DÉBUT</span>Grosse production de contenu la première fois, faible ensuite.</p></div><div class="prep-row"><b>Réplicable tel quel ?</b><p><span class="badge ok">OUI ≈75 %</span>Exemples à adapter au secteur ; aucun développement, outils auteurs existants.</p></div></div></div></section>
+
+<section id="detail-chat" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#package">← Retour</a></div><h2>4. Chatbot Coach</h2><h3>Fonctions</h3><div class="checks"><div class="check">Répondre selon la politique IA de l’entreprise.</div><div class="check">Poser des questions ouvertes et demander une justification.</div><div class="check">Présenter des cas métier adaptés au rôle.</div><div class="check">Citer la règle ou la procédure applicable.</div><div class="check">Détecter l’incertitude et escalader vers un humain.</div><div class="check">Tracer les versions et résultats.</div></div><div class="time-box"><div class="time-item"><b>1–2 j</b>Base standard</div><div class="time-item"><b>2–4 j</b>Contenus client</div><div class="time-item"><b>1–2 j</b>Tests</div><div class="time-item"><b>Mensuel</b>Mise à jour</div></div><div class="prep"><b class="prep-title">Côté Banana — préparation interne</b><div class="prep-row"><b>À préparer</b><p>Base de connaissances, prompts d’évaluation, scénarios par métier — branchés sur notre stack chatbot existante.</p></div><div class="prep-row"><b>Difficulté</b><p><span class="badge warn">MOYENNE</span>De la configuration, pas un nouveau produit.</p></div><div class="prep-row"><b>Réplicable tel quel ?</b><p><span class="badge ok">OUI</span>Moteur commun à tous les clients ; seuls les contenus changent. Dev initial léger, une seule fois.</p></div></div></div></section>
+
+<section id="detail-voice" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#package">← Retour</a></div><h2>5. Voicebot Coach</h2><p>Le voicebot simule des situations professionnelles dans lesquelles l’employé doit expliquer, décider et justifier.</p><h3>Valeur ajoutée</h3><div class="checks"><div class="check">Évaluation moins mécanique qu’un questionnaire à choix multiple.</div><div class="check">Scénarios réalistes par fonction.</div><div class="check">Relances, contradictions et demandes de précision.</div><div class="check">Feedback immédiat et traçable.</div><div class="check">Multilingue pour la Belgique.</div></div><div class="callout">Le score ne doit pas prendre seul une décision ayant un effet important sur l’employé. Les critères, seuils et validations restent sous gouvernance humaine.</div><div class="time-box"><div class="time-item"><b>2–3 j</b>Voicebot standard</div><div class="time-item"><b>2–5 j</b>Scénarios client</div><div class="time-item"><b>1–2 j</b>Tests</div><div class="time-item"><b>Variable</b>Téléphonie</div></div><div class="prep"><b class="prep-title">Côté Banana — préparation interne</b><div class="prep-row"><b>À préparer</b><p>Scénarios vocaux, grilles d’évaluation, voix et langues FR/NL/EN, téléphonie éventuelle.</p></div><div class="prep-row"><b>Difficulté</b><p><span class="badge hard">ÉLEVÉE PUIS MOYENNE</span>Le premier déploiement demande du développement, les suivants beaucoup moins.</p></div><div class="prep-row"><b>Réplicable tel quel ?</b><p><span class="badge warn">EN GRANDE PARTIE</span>Moteur et scénarios types communs ; la téléphonie et les intégrations client peuvent demander du dev ponctuel.</p></div></div></div></section>
+
+<section id="detail-monitoring" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#package">← Retour</a></div><h2>6. Evidence & monitoring</h2><h3>Ce qui est suivi</h3><div class="checks"><div class="check">Versions des politiques et contenus.</div><div class="check">Employés formés, rôles, dates et résultats.</div><div class="check">Nouveaux outils IA et nouveaux fournisseurs.</div><div class="check">Incidents, erreurs et actions correctives.</div><div class="check">Renouvellements et rappels automatiques.</div><div class="check">Rapport de préparation à un contrôle.</div></div><h3>Modèle récurrent</h3><div class="time-box"><div class="time-item"><b>1–2 j</b>Setup initial</div><div class="time-item"><b>Mensuel</b>Monitoring</div><div class="time-item"><b>Trimestriel</b>Revue</div><div class="time-item"><b>Annuel</b>Audit interne</div></div><div class="prep"><b class="prep-title">Côté Banana — préparation interne</b><div class="prep-row"><b>À préparer</b><p>Dashboard de preuves, rappels automatiques, format de rapport mensuel et export prêt pour un contrôle.</p></div><div class="prep-row"><b>Difficulté</b><p><span class="badge warn">MOYENNE</span>Un développement initial unique.</p></div><div class="prep-row"><b>Réplicable tel quel ?</b><p><span class="badge ok">OUI ≈95 %</span>La même plateforme sert tous les clients ; seul le paramétrage change.</p></div></div></div></section>
+
+<section id="detail-banned" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#law">← Retour</a></div><h2>AI Act — Pratiques interdites</h2><div class="callout"><b>Interdites depuis le 2 février 2025.</b> Sanctions maximales : jusqu’à 35 M€ ou 7 % du chiffre d’affaires mondial.</div><div class="checks"><div class="check">Manipulation ou tromperie causant un préjudice significatif.</div><div class="check">Exploitation des vulnérabilités liées à l’âge, au handicap ou à la situation sociale.</div><div class="check">Notation sociale menant à un traitement défavorable injustifié.</div><div class="check">Police prédictive fondée uniquement sur le profilage.</div><div class="check">Constitution de bases de reconnaissance faciale par scraping non ciblé.</div><div class="check">Reconnaissance des émotions au travail et à l’école, hors raisons médicales ou de sécurité.</div><div class="check">Catégorisation biométrique révélant des données sensibles.</div><div class="check">Identification biométrique à distance en temps réel dans l’espace public, sauf exceptions strictes.</div></div><h3>Ce que Banana vérifie</h3><div class="checks"><div class="check">Aucun usage client ne tombe dans une catégorie interdite.</div><div class="check">Les cas limites (émotions, biométrie, scoring) sont documentés et arbitrés.</div><div class="check">Le personnel sait reconnaître et signaler un usage interdit.</div></div><a class="source-link" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">Texte officiel</a></div></section>
+
+<section id="detail-gpai" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#law">← Retour</a></div><h2>AI Act — Modèles à usage général</h2><div class="callout"><b>Applicable depuis le 2 août 2025 aux fournisseurs de modèles GPAI.</b></div><p>Les obligations visent d’abord les fournisseurs de modèles (documentation technique, politique de droits d’auteur, résumé des données d’entraînement, mesures renforcées en cas de risque systémique). Pour une entreprise utilisatrice, l’enjeu est de choisir et surveiller ses fournisseurs.</p><h3>Ce que l’entreprise doit faire</h3><div class="checks"><div class="check">Recenser les modèles utilisés directement ou via des outils tiers.</div><div class="check">Vérifier la documentation et les conditions d’utilisation des fournisseurs.</div><div class="check">Encadrer contractuellement les usages, données et responsabilités.</div><div class="check">Suivre les mises à jour de modèles qui changent le comportement des outils.</div></div><a class="source-link" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">Texte officiel</a></div></section>
+
+<section id="detail-rgpd" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#law">← Retour</a></div><h2>RGPD</h2><div class="callout"><b>Applicable depuis mai 2018 — et concerné par presque chaque usage d’IA.</b></div><div class="checks"><div class="check">Base légale identifiée pour chaque traitement impliquant l’IA.</div><div class="check">Aucune donnée personnelle dans des outils non maîtrisés ou non contractualisés.</div><div class="check">DPIA pour les usages à risque élevé (profilage, données sensibles, surveillance).</div><div class="check">Article 22 : pas de décision entièrement automatisée à effet significatif sans cadre.</div><div class="check">Droits des personnes : accès, rectification, effacement, opposition.</div><div class="check">Contrats de sous-traitance (art. 28) et encadrement des transferts hors UE.</div></div><h3>Ce que Banana intègre</h3><div class="checks"><div class="check">Cartographie des données personnelles dans chaque usage IA.</div><div class="check">Règles pratiques par métier : quoi mettre, ne jamais mettre, anonymiser.</div><div class="check">Modèles de DPIA et registre de traitement liés au registre IA.</div></div><a class="source-link" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">Texte officiel</a></div></section>
+
+<section id="detail-next" class="detail-page"><div class="detail-wrap"><div class="detail-top"><a class="back" href="#law">← Retour</a></div><h2>2026–2027 — Ce qui arrive ensuite</h2><div class="checks"><div class="check"><b>Cyber Resilience Act</b> — exigences de sécurité pour les produits comportant des éléments numériques ; l’essentiel des obligations s’applique fin 2027.</div><div class="check"><b>Data Governance Act</b> — cadre des intermédiaires de données et de l’altruisme des données, déjà applicable depuis septembre 2023.</div><div class="check"><b>ISO/IEC 42001</b> — norme volontaire de management de l’IA, utile comme preuve de gouvernance face aux clients et autorités.</div><div class="check"><b>Standards harmonisés & codes de conduite AI Act</b> — à surveiller : ils préciseront la mise en œuvre concrète.</div></div><div class="callout">La veille sur ces textes est incluse dans l’abonnement récurrent : le client est prévenu quand une nouvelle obligation le concerne.</div><a class="source-link" target="_blank" href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng">Cyber Resilience Act — texte officiel</a></div></section>
+
+<script>
+(function(){
+ const ids=["price","hours","hourcost","legal","content","other","cost","margin","rate","floor","rateCard"];
+ const e={}; ids.forEach(id=>e[id]=document.getElementById(id));
+ function euro(n){return new Intl.NumberFormat("fr-BE",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n)}
+ function calc(){
+  if(!e.price)return;
+  const p=Number(e.price.value)||0,h=Number(e.hours.value)||0,hc=Number(e.hourcost.value)||0;
+  const total=h*hc+(Number(e.legal.value)||0)+(Number(e.content.value)||0)+(Number(e.other.value)||0);
+  const m=p-total,r=p?m/p*100:0,f=total/0.6;
+  e.cost.textContent=euro(total);e.margin.textContent=euro(m);e.rate.textContent=r.toFixed(1).replace(".",",")+" %";e.floor.textContent=euro(f);
+  e.rateCard.className="metric "+(r>=40?"good":r<25?"bad":"");
+ }
+ ["price","hours","hourcost","legal","content","other"].forEach(id=>{
+  if(e[id]){e[id].addEventListener("input",calc);e[id].addEventListener("change",calc)}
+ });
+ calc();
+})();
+</script>
+</body>
+</html>
